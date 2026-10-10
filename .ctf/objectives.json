@@ -1,0 +1,62 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Escape the Python sandbox and read the file called flag in its working directory.",
+      "check": {
+        "evidence": "SECRET",
+        "format": "CTF{%s}"
+      },
+      "dev": "CTF{dev-google-ctf-2022-treebox}",
+      "hints": [
+        "The check looks for call nodes and imports in the syntax tree, nothing else.",
+        "Some Python syntax runs a function without looking like a call."
+      ],
+      "steps": [
+        {
+          "key": "module",
+          "title": "Identify the checker",
+          "prompt": "Which Python standard module parses your code for the check?",
+          "check": {
+            "answer": [
+              "ast"
+            ]
+          }
+        },
+        {
+          "key": "banned",
+          "title": "Know what is banned",
+          "prompt": "Besides imports, which kind of expression node does the checker reject?",
+          "check": {
+            "answer": [
+              "call",
+              "calls",
+              "function call",
+              "function calls",
+              "ast.call"
+            ]
+          }
+        },
+        {
+          "key": "feature",
+          "title": "Find a way around",
+          "prompt": "Name one Python feature that invokes a function without call syntax.",
+          "check": {
+            "answer": [
+              "decorator",
+              "decorators",
+              "class decorator",
+              "metaclass",
+              "metaclasses",
+              "operator overloading",
+              "magic methods",
+              "dunder methods",
+              "exception handler"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
