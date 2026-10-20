@@ -1,8 +1,11 @@
 {
+  "project_name": "cyberlabs-google-ctf-2022-treebox",
+  "slug": "google-ctf-2022-treebox",
   "title": "Google CTF 2022: Treebox",
   "description": "A Python sandbox that rejects code containing imports or calls, checked on the AST. The flag is in a file.",
-  "question": "Escape the AST-checked Python sandbox and read the flag file.",
-  "category": "MISC",
+  "category": "misc",
   "difficulty": 2,
-  "evidence_kind": "SECRET"
+  "evidence_kind": "SECRET",
+  "capabilities": [],
+  "question": "Escape the AST-checked Python sandbox and read the flag file."
 }
